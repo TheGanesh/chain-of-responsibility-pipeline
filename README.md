@@ -57,7 +57,7 @@ If `false` is returned from the stage then remaining pipeline execution wil be s
     PipelineContext pipelineContext1 = PipelineContext.builder().build();
     pipeline.execute(pipelineContext1);
 ```
-##Pipeline & steps as Spring beans:
+## Pipeline & steps as Spring beans:
 
 This code/jar didn't have any Spring dependency to be more flexible but if primary application which adds this jar as dependecny is Spring then both Pipeline & Steps can be Spring components as shown,
 
@@ -72,6 +72,9 @@ This code/jar didn't have any Spring dependency to be more flexible but if prima
      
  > Extend Pipeline to make it Spring bean & add steps in the PostConstruct method
 ```
+   @Component
+   public class CustomProcessingPipeline extends Pipeline {
+
    @PostConstruct
    public void afterConstruct() { 
           addPipelineSteps(
